@@ -22,7 +22,8 @@ gdalinfo ht_sed.nc -stats
 # Minimum=103.266, Maximum=10333.952
 
 # Select a color palette
-gmt makecpt -Cturbo.cpt -V -T104/10333/1000 > colors.cpt
+#gmt makecpt -Cturbo.cpt -V -T104/10333/1000 > colors.cpt
+gmt makecpt -Cturbo.cpt -V -T104/15000/1000 > colors.cpt
 
 # Generate a file
 ps=HT_Sediments.ps
@@ -33,7 +34,7 @@ gmt grdimage ht_sed.nc -Ccolors.cpt -R19/37/30.5/41.5 -JM6i -P -I+a15+ne0.75 -Xc
 gmt psbasemap -R -J \
     -Bpx4f1a1 -Bpyg4f1a1 -Bsxg2 -Bsyg2 \
     --MAP_TITLE_OFFSET=0.8c \
-    -B+t"Sediment thickness on the Aegean Sea seafloor" -O -K >> $ps
+    -B+t"Sediment thickness on the Eastern Mediterranean Sea region" -O -K >> $ps
     
 # Add shorelines
 gmt grdcontour ht_sed.nc -R -J -C500 -Wthinnest,gray -O -K >> $ps
